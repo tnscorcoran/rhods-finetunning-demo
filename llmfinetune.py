@@ -11,7 +11,8 @@ from peft import PeftModel
 token = "xxxxxxxxxxxxxxxxxxxxxxxx"
 HfFolder.save_token(token)
 
-model_id = "meta-llama/Llama-2-7b-chat-hf" ## "Trelis/Llama-2-7b-chat-hf-sharded-bf16" is an alternative if you don't have access via Meta on HuggingFace
+model_id = "Trelis/Llama-2-7b-chat-hf-sharded-bf16" ## "Trelis/Llama-2-7b-chat-hf-sharded-bf16" is an alternative if you don't have access via Meta on HuggingFace
+# model_id = "meta-llama/Llama-2-7b-chat-hf" ## "Trelis/Llama-2-7b-chat-hf-sharded-bf16" is an alternative if you don't have access via Meta on HuggingFace
 # model_id = "meta-llama/Llama-2-13b-chat-hf"
 bnb_config = BitsAndBytesConfig(
     load_in_4bit=True,
@@ -85,8 +86,8 @@ trainer.train()
 base_model_name = model_id.split("/")[-1]
 
 # Define the save and push paths
-adapter_model = f"avijra/{base_model_name}-fine-tuned-adapters"  #adjust 'avijra' to your HuggingFace organisation
-new_model = f"avijra/{base_model_name}-fine-tuned" #adjust 'avijra' to your HuggingFace organisation
+adapter_model = f"tnscorcoran/{base_model_name}-fine-tuned-adapters"  #adjust 'avijra' to your HuggingFace organisation
+new_model = f"tnscorcoran/{base_model_name}-fine-tuned" #adjust 'avijra' to your HuggingFace organisation
 
 # Save the model
 model.save_pretrained(adapter_model, push_to_hub=True, use_auth_token=True)
