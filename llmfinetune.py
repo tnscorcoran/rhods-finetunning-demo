@@ -85,6 +85,8 @@ trainer.train()
 
 base_model_name = model_id.split("/")[-1]
 
+base_model_name = base_model_name + "-2"
+
 # Define the save and push paths
 adapter_model = f"tnscorcoran/{base_model_name}-fine-tuned-adapters"  #adjust 'avijra' to your HuggingFace organisation
 new_model = f"tnscorcoran/{base_model_name}-fine-tuned" #adjust 'avijra' to your HuggingFace organisation
